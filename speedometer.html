@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ride</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./global.css">
 </head>
-<body>
-    <div>
-        <a href="./index.html">X</a>
-        <div>
-            <span id="speed">0</span>
-            <span>Km/h</span>
+<body class="h-100">
+    <div class="container d-flex flex-column justify-content-between h-100 ">
+        <nav class="navbar justify-content-end">
+            <a href="./index.html" class="btn btn-close border border-dark p-2"></a>
+        </nav>
+        <div class="d-flex flex-column align-items-center justify-content-center bg-dark text-light flex-fill mb-3 rounded-3">
+            <span id="speed" class="fw-bold display-5">0</span>
+            <span class="display-5 ">Km/h</span>
         </div>
-        <button id="start">Start</button>
-        <button id="stop">Stop</button> 
+        <button id="start" class="btn btn-primary mb-3">
+             <span class="display-3">Start</span>
+        </button>
+        <button id="stop" class="btn btn-danger d-none mb-3">
+            <span class="display-3">Stop</span>
+        </button> 
     </div>
 </body>
 </html>
