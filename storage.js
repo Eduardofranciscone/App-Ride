@@ -1,4 +1,4 @@
-function createNewRider(){
+function createNewRide(){
     const rideID = Date.now()
     const rideRecord = {
         data: [],

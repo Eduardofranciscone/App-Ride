@@ -14,7 +14,7 @@ startBtn.addEventListener("click", () => {
         console.warn(`ERROR(${error.code}): ${error.message}`);
     }
     const options = {enableHighAccuracy: true};
-    currentRide = createNewRider();
+    currentRide = createNewRide();
     wachId = navigator.geolocation.watchPosition(handleSuccess, handleError, options);
     startBtn.classList.add("d-none");
     stopBtn.classList.remove("d-none");
