@@ -20,10 +20,19 @@ allRides.forEach(async ([id, value]) => {
     const distanceDiv= document.createElement('div');
     distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`;
 
+    const durationDiv= document.createElement('div');
+    durationDiv.innerText = getDuration(ride);
+
+    const dateDiv= document.createElement('div');
+    dateDiv.innerText = getStartDate(ride);
+
     itemElement.appendChild(cityDiv);
     itemElement.appendChild(maxSpeedDiv);
     itemElement.appendChild(distanceDiv);
+    itemElement.appendChild(durationDiv);
+    itemElement.appendChild(dateDiv);
     rideListElement.appendChild(itemElement);
+    
 }) 
 
 async function getLocationData(latitude, longitude){
@@ -74,5 +83,27 @@ function getDistance(positions){
 
 function toRad(degree){
     return degree * Math.PI / 180;
+}
+
+function getDuration(ride){
+    function format(number,digits){
+        return String(number.toFixed(0)).padStart(2, '0');
+    }
+    const interval = (ride.stopTime - ride.startTime) / 1000;
+    const hours = Math.floor(interval / 3600);
+    const minutes = Math.trunc(interval / 60)
+    const seconds = interval % 60;
+    return `${format(hours,2)}h ${format(minutes,2)}m ${format(seconds,2)}s`;
+}
+
+function getStartDate(ride){
+    const date = new Date(ride.startTime);
+    const day = date.toLocaleDateString('pt-BR', {day: 'numeric'});
+    const month = date.toLocaleDateString('pt-BR', {month: 'numeric'});
+    const year = date.toLocaleDateString('pt-BR', {year: 'numeric'});
+
+    const hour = date.toLocaleTimeString('pt-BR', {hour: '2-digit'});
+    const minute = date.toLocaleTimeString('pt-BR', {minute: '2-digit'});
+    return `${day}/${month}/${year} - ${hour}:${minute}`;
 }
 
