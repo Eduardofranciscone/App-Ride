@@ -14,6 +14,7 @@ function getRideRecord(rideID){
 }
 
 function getAllRides(){
+    
     return Object.entries(localStorage)
 }
 
