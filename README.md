@@ -19,3 +19,45 @@ O foco do projeto é praticar conceitos de JavaScript, manipulação do DOM, uso
   CSS3 – estilização e layout
   JavaScript – lógica da aplicação
   Bootstrap – responsividade e componentes visuais
+  Leaflet.js
+  Geolocation API
+
+  🚀 Como Funciona
+  
+1️⃣ Iniciando uma corrida
+O usuário clica em Start
+A aplicação:
+Cria um novo registro no localStorage
+Inicia o navigator.geolocation.watchPosition
+Salva cada posição capturada
+
+2️⃣ Durante a corrida
+A velocidade é exibida em tempo real
+As coordenadas são armazenadas no array data
+A cada nova posição, os dados são atualizados no localStorage
+
+3️⃣ Finalizando a corrida
+Ao clicar em Stop:
+O rastreamento é encerrado
+O horário final é salvo
+O usuário retorna para a tela inicial
+
+4️⃣ Tela Principal (index)
+Lista todas as corridas salvas
+Mostra:
+Cidade e país
+Velocidade máxima
+Distância
+Duração
+Data
+Exibe um mini mapa com a posição inicial
+
+5️⃣ Tela de Detalhes
+Mostra:
+Cidade inicial
+Velocidade máxima
+Distância total
+Duração
+Data
+Exibe o trajeto completo no mapa usando Polyline
+Permite deletar a corrida
