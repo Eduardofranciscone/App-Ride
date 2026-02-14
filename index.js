@@ -33,7 +33,7 @@ allRides.forEach(async ([id, value]) => {
 
     const maxSpeedDiv= document.createElement('div');
     maxSpeedDiv.innerText = `Max speed: ${getMaxSpeed(ride.data)}`;
-    maxSpeedDiv.className = 'h5';
+    maxSpeedDiv.className = 'h4';
 
     const distanceDiv= document.createElement('div');
     distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`;
