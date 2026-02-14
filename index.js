@@ -5,6 +5,14 @@ allRides.forEach(async ([id, value]) => {
     const ride = JSON.parse(value);
     ride.id = id
 
+    const itemElement = document.createElement('li');
+    itemElement.id = ride.id;
+    itemElement.className = 'd-flex align-items-center p-1 shadow-sm gap-3';
+    rideListElement.appendChild(itemElement);
+
+    const firstPosition = ride.data[0];
+    const firstLocationData = await getLocationData(firstPosition.latitude, firstPosition.longitude)
+
     const mapElement = document.createElement('div');
     mapElement.style = 'width: 100px; height: 100px';
     mapElement.classList.add('bg-secondary');
@@ -13,13 +21,6 @@ allRides.forEach(async ([id, value]) => {
     const dataElement = document.createElement('div');
     dataElement.className = 'flex-fill d-flex flex-column gap-2';
 
-    const firstPosition = ride.data[0];
-    const firstLocationData = await getLocationData(firstPosition.latitude, firstPosition.longitude)
-
-    const itemElement = document.createElement('li');
-    itemElement.id = ride.id;
-    itemElement.className = 'd-flex align-items-center p-1 shadow-sm gap-3';
-    
     const cityDiv= document.createElement('div');
     cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.countryCode}`;
     cityDiv.className = 'text-primary fw-bold mb-2';
@@ -45,7 +46,7 @@ allRides.forEach(async ([id, value]) => {
     dataElement.appendChild(dateDiv);
     itemElement.appendChild(mapElement)
     itemElement.appendChild(dataElement);
-    rideListElement.appendChild(itemElement);
+   
     
 }) 
 
