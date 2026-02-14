@@ -9,13 +9,15 @@ function createNewRide(){
     return rideID;
 };
 
-function getRideRecord(rideID){
-    return JSON.parse(localStorage.getItem(rideID));
+function deleteRide(rideID){
+    localStorage.removeItem(rideID)
 }
 
 function getAllRides(){
-    
     return Object.entries(localStorage)
+}
+function getRideRecord(rideID){
+    return JSON.parse(localStorage.getItem(rideID));
 }
 
 function saveRideRecord(rideID, rideRecord){
